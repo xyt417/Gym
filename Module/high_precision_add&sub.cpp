@@ -23,16 +23,14 @@ string Add(string s1, string s2){
 
 // ################# 高精度减法 #####################
 int Cmp(string s1, string s2){
-    if(s1.length() != s2.length()) return s1.length() > s2.length() ? 1 : -1;
+    if(s1.length() != s2.length()) return s1.length() > s2.length();
     for(int i = 0; i < s1.length(); ++i)
         if(s1[i] != s2[i])
-            return s1[i] > s2[i] ? 1 : -1;
-    return 0;
+            return s1[i] > s2[i];
 }
-// s1 > s2
+// s1 >= s2
 string Sub(string s1, string s2){
-    if(Cmp(s1, s2) == -1) return '-' + Sub(s2, s1);
-    if(Cmp(s1, s2) == 0) return "0";
+    if(!Cmp(s1, s2)) return '-' + Sub(s2, s1);
     int len1 = s1.length(), len2 = s2.length();
     string res;
     int c = 0;
@@ -42,10 +40,9 @@ string Sub(string s1, string s2){
         if(i < len2) b = s2[len2 - i - 1] - '0';
         c = a - b - c;
         res += (c + 10) % 10 + '0';
-        c = c < 0 ? 1 : 0;
+        c = c < 0 ? 1 : 0; // 是否借1
     }
-    while(res.length() > 1 && res.back() == '0') res.pop_back();
-    cout << res.length();
+    while(res.length() > 1 && res.back() == '0') res.pop_back(); //去除先导0
     reverse(res.begin(), res.end());
     return res;
 }

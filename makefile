@@ -1,6 +1,6 @@
 
-dir = Module
-src_name = high_precision.cpp
+dir = .
+src_name = test.cpp
 
 path = $(dir)/$(src_name)
 compile: 
