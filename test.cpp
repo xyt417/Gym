@@ -1,23 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-// ##################### Bsearch F ########################
-double bsearch_f(double low, double high, double value){
-    double l=low, r=high;
-    while(r-l>1e-7){
-        double mid=(l+r)/2;
-        if(mid*mid*mid<value) l=mid;
-        else r=mid;
-        cout << mid << '\n';
-    }
-    return l;
-}
-// #########################################################
 
-// #########################  Test  ########################
+vector<int> mul(vector<int> &A, int b)
+{
+    vector<int> C;
+
+    int t = 0;
+    for (int i = 0; i < A.size() || t; i ++ )
+    {
+        if (i < A.size()) t += A[i] * b;
+        C.push_back(t % 10);
+        t /= 10;
+    }
+
+    while (C.size() > 1 && C.back() == 0) C.pop_back();
+
+    return C;
+}
+
 int main(){
-    double n;
-    cin>>n;
-    cout<<fixed<<setprecision(6)<<bsearch_f(-10000, 10000, n);
+    string a;
+    int b;
+    cin >> a >> b;
+
+    vector <int> A;
+    for (int i = a.size() - 1; i >= 0; i --) A.push_back(a[i] - '0');
+
+    auto C = mul(A, b);
+
+    for (int i = C.size() - 1; i >= 0; i --) {
+        cout << C[i];
+    }
+
     return 0;
 }
-// ##########################################################

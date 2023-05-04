@@ -50,11 +50,56 @@ string Sub(string s1, string s2){
 }
 // #################################################
 
+// ############# 高精度乘法(大数 x 小数) ############
+string Mul(string s, int n){
+    string res;
+    int len = s.length();
+    int c = 0;
+    for(int i = 0; i < len || c; ++ i){
+        int a = 0;
+        if(i < len) a = s[len - i - 1] - '0';
+        c = a * n + c;
+        res += c % 10 + '0';
+        c /= 10;
+    }
+    while(res.length() > 1 && res.back() == '0') res.pop_back(); // 去除先导0
+    reverse(res.begin(), res.end());
+    return res;
+}
+// #################################################
+
+// ############# 高精度除法(大数 x 小数) ############
+string Div(string s, int n, int &r){
+    string res;
+    int len = s.length();
+    r = 0;
+    for(int i = 0; i < len; ++ i){
+        r = r * 10 + s[i] - '0';
+        res += r / n + '0';
+        r %= n;
+    }
+    reverse(res.begin(), res.end());
+    while(res.length() > 1 && res.back() == '0') res.pop_back(); // 去除先导0
+    reverse(res.begin(), res.end());
+    return res;
+}
+// #################################################
+
 // #################### Test #######################
 int main(){
-    string s1, s2; 
-    cin >> s1 >> s2;
-    cout << Sub(s1, s2) << endl;
+    // ### Add & Sub ###
+    // string s1, s2; 
+    // cin >> s1 >> s2;
+    // cout << Add(s1, s2) << endl;
+    // cout << Sub(s1, s2) << endl;
+
+    // ### Mul & Div ###
+    string s;
+    int n, r;
+    cin >> s >> n;
+    // cout << Mul("123", n) << endl;
+    cout << Div(s, n, r) << '\n'; 
+    cout << r << '\n';
     return 0;
 }
 // #################################################
