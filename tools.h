@@ -32,15 +32,5 @@ int bsearch_R(int q[], int l, int r, int val){
     return q[l]==val?l:-1;
 }
 
-double bsearch_f(double l, double r, double val){
-    const double eps=1e-7;
-    while(r-l>eps){
-        double mid=(r+l)/2;
-        if(mid*mid*mid>val) r=mid;
-        else l=mid;
-    }
-    return l;
-}
-
 
 #endif

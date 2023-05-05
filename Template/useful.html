@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>useful methods in Cpp</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -40,14 +40,16 @@
         
     </head>
     <body class="vscode-body vscode-dark">
-        <p>Gym</p>
+        <h1 id="useful-methods-in-cpp">useful methods in Cpp</h1>
 <ul>
-<li>Template</li>
-<li>AtCoder</li>
-<li>CodeForces</li>
-<li>LeetCode</li>
-<li>AcWing</li>
+<li>输出x的二进制数中1的个数</li>
 </ul>
+<pre><code class="language-cpp">cout &lt;&lt; __builtin_popcount(x) &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+<span class="hljs-comment">// 或</span>
+<span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span>(x) x -= x &amp; (-x), res++;
+cout &lt;&lt; res &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;
+</code></pre>
 
         
         
