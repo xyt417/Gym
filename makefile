@@ -1,9 +1,7 @@
-
 ##################################
 dir = .
 src_name = test.cpp
 ##################################
-
 path = $(dir)/$(src_name)
 run: compile
 	./test
