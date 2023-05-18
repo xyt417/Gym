@@ -1,35 +1,32 @@
-// [803.区间合并]
+// [滑动窗口]
 #include<bits/stdc++.h>
 using namespace std;
-typedef pair<int, int> PII;
-const int _inf = -2e9;
-int n;
-vector<PII> merge(vector<PII> &segs){
-    vector<PII> res;
-    sort(segs.begin(), segs.end());
-    int st = _inf, ed = _inf;
-    for(PII seg : segs){
-        if(ed < seg.first){
-            if(st != _inf) res.push_back({st, ed});
-            st = seg.first, ed = seg.second;
-        }
-        else ed = max(ed, seg.second);
-    }
-    if(st != _inf) res.push_back({st, ed});
-    return res;
-}
+
+const int N = 1000010;
+int q[N];
+int x[N];
+int hh = 0, tt = -1;
 int main(){
-    cin >> n;
-    vector<PII> segs;
-    while(n --){
-        PII seg;
-        cin >> seg.first >> seg.second;
-        segs.push_back(seg);
+    int n, k;
+    cin >> n >> k;
+    for(int i = 0; i < n; ++ i){
+        cin >> x[i];
     }
-    // segs = merge(segs);
-    // for(PII seg : segs){
-    //     cout << "[" << seg.first << ',' << seg.second << "]" << '\n';
-    // }
-    cout << merge(segs).size();
+    for(int i = 0; i < n; ++ i){   
+        while(tt >= hh && i - q[hh] + 1 > k) ++ hh; // while(tt >= hh && check()) ++ hh;
+        while(tt >= hh && x[q[tt]] > x[i]) -- tt; // while(tt >= hh && check()) --tt;
+        q[++ tt] = i; // q[++ tt] = i;
+        if(i >= k - 1)
+            cout << x[q[hh]] << " ";
+    }
+    cout << '\n';                  
+    hh = 0, tt = -1; //reset         
+    for(int i = 0; i < n; ++ i){
+        while(tt >= hh && i - q[hh] + 1 > k) ++ hh;
+        while(tt >= hh && x[q[tt]] < x[i]) -- tt;
+        q[++ tt] = i;              
+        if(i >= k - 1)                 
+            cout << x[q[hh]] << ' ';  
+    }
     return 0;
 }

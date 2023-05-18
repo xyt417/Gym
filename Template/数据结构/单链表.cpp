@@ -1,4 +1,6 @@
 const int N = 100010;
+
+// ############# 单链表 ###############
 int head, e[N], ne[N], idx;
 // 初始化
 void init(){
