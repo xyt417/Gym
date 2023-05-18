@@ -1,4 +1,5 @@
 // [滑动窗口]
+// 单调队列 <-> 栈底变化的单调栈
 #include<bits/stdc++.h>
 using namespace std;
 
