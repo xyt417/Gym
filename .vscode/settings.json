@@ -10,6 +10,7 @@
         "future": "cpp",
         "string_view": "cpp",
         "type_traits": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "ostream": "cpp"
     }
 }

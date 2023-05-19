@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 100010;
-int e[N], ne[N], h[N], idx;
+const int M = 100010;
+int e[2 * M], ne[2 * M], h[N], idx; // 注: 无向图的边数是有向图的两倍，M条无向边邻接表得开 2M
 int st[N];
 void add(int a, int b){
     e[idx] = b, ne[idx] = h[a], h[a] = idx ++;
@@ -31,16 +32,16 @@ int BFS(int u){
         }
     }
 }
+
 // [846.树的重心]
-int weight = 2e9;
-//重心
-int n;
-int center;
+int weight = 2e9; // 重心分割最大连通块节点数
+int n; // 节点数
+int center; // 重心
 int dfs(int u){
     st[u] = true;
-    int childnodes;
-    int nnodes = 1;
-    int maxn = 0;
+    int childnodes; // 子树节点数
+    int nnodes = 1; // 当前节点为根的树的节点数
+    int maxn = 0; // 以当前节点为分割点的最大连通块节点数
     for(int i = h[u]; i != -1; i = ne[i]){
         int j = e[i];
         if(st[j] != true){
