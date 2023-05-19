@@ -24,6 +24,7 @@ bool topsort(){ // 返回是否存在拓扑序列
     return tt == n - 1;
 }
 
+// [有向图的拓扑序列]
 int main(){
     memset(h, -1, sizeof(h));
     cin >> n >> m;

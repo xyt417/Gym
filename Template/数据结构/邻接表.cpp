@@ -3,11 +3,11 @@ using namespace std;
 const int N = 100010;
 
 // ############# 邻接表 #############
-int h[N], e[N], ne[N], idx;
+int h[N], e[N], ne[N], w[N], idx;
 
-// 添加一条边 a->b
-void add(int a, int b){
-    e[idx] = b, ne[idx] = h[a], h[a] = idx ++;
+// 添加一条边 a->b 边长为c
+void add(int a, int b, int c){
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++;
 }
 
 // 初始化
