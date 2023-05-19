@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>vector&comma; &#x53d8;&#x957f;&#x6570;&#x7ec4;&#xff0c;&#x500d;&#x589e;&#x7684;&#x601d;&#x60f3;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: 'JetBrains Mono',-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-dark">
+        <h2 id="vector-变长数组倍增的思想">vector, 变长数组，倍增的思想</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()  返回元素个数
+<span class="hljs-built_in">empty</span>()  返回是否为空
+<span class="hljs-built_in">clear</span>()  清空
+<span class="hljs-built_in">front</span>()/<span class="hljs-built_in">back</span>()
+<span class="hljs-built_in">push_back</span>()/<span class="hljs-built_in">pop_back</span>()
+<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+[]
+支持比较运算，按字典序
+</code></pre>
+<h2 id="pairint-int">pair&lt;int, int&gt;</h2>
+<pre><code class="language-c++">first, 第一个元素
+second, 第二个元素
+支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+</code></pre>
+<h2 id="string字符串">string，字符串</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()/<span class="hljs-built_in">length</span>()  返回字符串长度
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">clear</span>()
+<span class="hljs-built_in">substr</span>(起始下标，(子串长度))  返回子串
+<span class="hljs-built_in">c_str</span>()  返回字符串所在字符数组的起始地址
+</code></pre>
+<h2 id="queue-队列">queue, 队列</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">push</span>()  向队尾插入一个元素
+<span class="hljs-built_in">front</span>()  返回队头元素
+<span class="hljs-built_in">back</span>()  返回队尾元素
+<span class="hljs-built_in">pop</span>()  弹出队头元素
+</code></pre>
+<h2 id="priority_queue-优先队列默认是大根堆">priority_queue, 优先队列，默认是大根堆</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">push</span>()  插入一个元素
+<span class="hljs-built_in">top</span>()  返回堆顶元素
+<span class="hljs-built_in">pop</span>()  弹出堆顶元素
+定义成小根堆的方式：priority_queue&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;, greater&lt;<span class="hljs-type">int</span>&gt;&gt; q;
+</code></pre>
+<h2 id="stack-栈">stack, 栈</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">push</span>()  向栈顶插入一个元素
+<span class="hljs-built_in">top</span>()  返回栈顶元素
+<span class="hljs-built_in">pop</span>()  弹出栈顶元素
+</code></pre>
+<h2 id="deque-双端队列">deque, 双端队列</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">clear</span>()
+<span class="hljs-built_in">front</span>()/<span class="hljs-built_in">back</span>()
+<span class="hljs-built_in">push_back</span>()/<span class="hljs-built_in">pop_back</span>()
+<span class="hljs-built_in">push_front</span>()/<span class="hljs-built_in">pop_front</span>()
+<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+[]
+</code></pre>
+<h2 id="set-map-multiset-multimap-基于平衡二叉树红黑树动态维护有序序列">set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列</h2>
+<pre><code class="language-c++"><span class="hljs-built_in">size</span>()
+<span class="hljs-built_in">empty</span>()
+<span class="hljs-built_in">clear</span>()
+<span class="hljs-built_in">begin</span>()/<span class="hljs-built_in">end</span>()
+++, -- 返回前驱和后继，时间复杂度 <span class="hljs-built_in">O</span>(logn)
+
+set/<span class="hljs-function">multiset
+    <span class="hljs-title">insert</span><span class="hljs-params">()</span>  插入一个数
+    <span class="hljs-title">find</span><span class="hljs-params">()</span>  查找一个数
+    <span class="hljs-title">count</span><span class="hljs-params">()</span>  返回某一个数的个数
+    <span class="hljs-title">erase</span><span class="hljs-params">()</span>
+        输入是一个数x，删除所有x 时间复杂度 <span class="hljs-title">O</span><span class="hljs-params">(k + logn)</span>
+        输入一个迭代器，删除这个迭代器
+    <span class="hljs-title">lower_bound</span><span class="hljs-params">()</span>/<span class="hljs-title">upper_bound</span><span class="hljs-params">()</span>
+        <span class="hljs-title">lower_bound</span><span class="hljs-params">(x)</span>  返回大于等于x的最小的数的迭代器
+        <span class="hljs-title">upper_bound</span><span class="hljs-params">(x)</span>  返回大于x的最小的数的迭代器
+
+map/multimap
+    <span class="hljs-title">insert</span><span class="hljs-params">()</span>  插入的数是一个pair
+    <span class="hljs-title">erase</span><span class="hljs-params">()</span>  输入的参数是pair或者迭代器
+    <span class="hljs-title">find</span><span class="hljs-params">()</span>
+    []  注意multimap不支持此操作。 时间复杂度是 <span class="hljs-title">O</span><span class="hljs-params">(logn)</span>
+    <span class="hljs-title">lower_bound</span><span class="hljs-params">()</span>/<span class="hljs-title">upper_bound</span><span class="hljs-params">()</span>
+</span></code></pre>
+<h2 id="unordered_set-unordered_map-unordered_multiset-unordered_multimap-哈希表">unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表</h2>
+<pre><code class="language-c++">和上面类似，增删改查的时间复杂度是 <span class="hljs-built_in">O</span>(<span class="hljs-number">1</span>)
+不支持 <span class="hljs-built_in">lower_bound</span>()/<span class="hljs-built_in">upper_bound</span>()， 迭代器的++，--
+</code></pre>
+<h2 id="bitset-圧位">bitset, 圧位</h2>
+<pre><code class="language-c++">bitset&lt;10000&gt; s;
+~, &amp;, |, ^
+&gt;&gt;, &lt;&lt;
+==, !=
+[]
+
+<span class="hljs-built_in">count</span>()  返回有多少个<span class="hljs-number">1</span>
+<span class="hljs-built_in">any</span>()  判断是否至少有一个<span class="hljs-number">1</span>
+<span class="hljs-built_in">none</span>()  判断是否全为<span class="hljs-number">0</span>
+
+<span class="hljs-built_in">set</span>()  把所有位置成<span class="hljs-number">1</span>
+<span class="hljs-built_in">set</span>(k, v)  将第k位变成v
+<span class="hljs-built_in">reset</span>()  把所有位变成<span class="hljs-number">0</span>
+<span class="hljs-built_in">flip</span>()  等价于~
+<span class="hljs-built_in">flip</span>(k) 把第k位取反
+</code></pre>
+
+        
+        
+    </body>
+    </html>
