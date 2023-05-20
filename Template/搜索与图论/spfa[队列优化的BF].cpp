@@ -22,7 +22,7 @@ int spfa(){
     while(q.size()){
         int t = q.front();
         q.pop();
-        st[t] = false; // 被更新过的点可能还会被更新，所以要重置
+        st[t] = false; // 被更新过的点可能还会被更新
         for(int i = h[t]; i != -1; i = ne[i]){
             int j = e[i];
             if(dist[j] > dist[t] + w[i]){
@@ -37,7 +37,7 @@ int spfa(){
     if(dist[n] == 0x3f3f3f3f) return 2e9;
     return dist[n];
 }
-
+// [SPFA求最短路]
 int main(){
     memset(h, -1, sizeof(h));
     cin >> n >> m;
