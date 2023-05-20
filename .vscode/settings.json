@@ -11,6 +11,7 @@
         "string_view": "cpp",
         "type_traits": "cpp",
         "variant": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "bellman-ford": "cpp"
     }
 }

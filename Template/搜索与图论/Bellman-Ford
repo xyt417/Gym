@@ -22,7 +22,7 @@ int bellman_ford(){
             }
         }
     }
-    if(dist[n] > 0x3f3f3f3f / 2) return 2e9; // 可能有负权边更新了无穷大
+    if(dist[n] > 0x3f3f3f3f / 2) return 2e9; // 注: 1.可能有负权边更新了无穷大  2.dist可能为负
     return dist[n];
 }
 
