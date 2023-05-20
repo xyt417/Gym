@@ -25,7 +25,7 @@ int bellman_ford(){
     if(dist[n] > 0x3f3f3f3f / 2) return 2e9; // 注: 1.可能有负权边更新了无穷大  2.dist可能为负
     return dist[n];
 }
-
+// [有边数限制的最短路]
 int main(){
     cin >> n >> m >> k;
     for(int i = 0; i < m; ++ i){

@@ -18,16 +18,16 @@ int spfa(){
     queue<int> q;
     q.push(1);
     st[1] = true;
-    // 每个被更新过的点都会去尝试更新相邻的点，每个点被更新前都会被所有可能更新它的点尝试更新
+    // 每个被更新过的点都会去尝试更新相邻的点，每个点被更新前都会被当前所有可能更新它的点尝试更新
     while(q.size()){
         int t = q.front();
         q.pop();
-        st[t] = false;
+        st[t] = false; // 被更新过的点可能还会被更新，所以要重置
         for(int i = h[t]; i != -1; i = ne[i]){
             int j = e[i];
             if(dist[j] > dist[t] + w[i]){
                 dist[j] = dist[t] + w[i];
-                if(!st[j]){
+                if(!st[j]){ // 已经放入队列的点不需要重复放入
                     q.push(j);
                     st[j] = true;
                 }
