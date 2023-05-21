@@ -30,7 +30,7 @@ int main(){
     while(m --){
         int x, y;
         cin >> x >> y;
-        add(x, y); // 无向图 为什么只能存一边?
+        add(x, y);
     }
     int res = 0;
     for(int i = 1; i <= n1; ++ i){
