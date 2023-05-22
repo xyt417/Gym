@@ -8,7 +8,7 @@ using namespace std;
 typedef long long LL;
 const LL Mod = 1e9 + 7;
 int n;
-// [870 & 871. 约数个数 & 约数之和]
+// [870 & 871. 约数个数 & 约数之和]  a1 ~ an乘积的约数个数与约数之和
 int main(){
     unordered_map<LL, LL> primes;
     LL a, res = 1;
